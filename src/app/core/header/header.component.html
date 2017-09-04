@@ -1,0 +1,43 @@
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark justify-content-center">
+  <a class="navbar-brand d-flex w-50 mr-auto " (click)="hideTog()" routerLink="/" >Recipe Book</a>
+  <button class="navbar-toggler" (click)="toggleCollapse()" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" [class.show]="show" id="navbarNavDropdown">
+    <ul class="navbar-nav mx-auto w-100 justify-content-center">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" (click)="hideTog()" routerLink="/recipes">My Recipes</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" (click)="hideTog()" routerLink="/shopping-list">My Shopping List</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" (click)="hideTog()" routerLink="/recipes-lists">Recipe Lists</a>
+      </li>
+    </ul>
+
+    <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
+      <ng-template [ngIf]="!isAuthenticated()">
+        <li class="nav-item"><a class="nav-link" (click)="hideTog()" routerLink="/signup">Register</a></li>
+        <li class="nav-item"><a class="nav-link" (click)="hideTog()" routerLink="/signin">Login</a></li>
+      </ng-template>
+      <li class="nav-item"><a class="nav-link" style="cursor: pointer;" routerLink="/profile" (click)="hideTog()" *ngIf="isAuthenticated()"><span><img [src]="image" alt=""></span> {{ author }}</a></li>
+      
+      <li class="nav-item"><a class="nav-link" style="cursor: pointer;" (click)="onLogout(); hideTog()" *ngIf="isAuthenticated()">Logout</a></li>
+      
+      
+      
+      <!-- <li class="nav-item dropdown" appDropdown *ngIf="isAuthenticated()">
+        <a style="cursor: pointer;" (click)="toggleManage()" class="nav-link dropdown-toggle" role="button" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Manage <span class="caret"></span></a>
+        <ul class="dropdown-menu" [class.show]="showManage" aria-labelledby="navbarDropdownMenuLink">
+          <li><a class="dropdown-item" style="cursor: pointer;" (click)="hideTog()" routerLink="/signin">My profile</a></li>
+          <li><a
+            class="dropdown-item"
+            style="cursor: pointer;"
+            (click)="onLogout(); hideTog()"
+            *ngIf="isAuthenticated()">Logout</a></li>
+        </ul> -->
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,16 @@
+<div
+  style="cursor: pointer;"
+  [routerLink]="[index]"
+  routerLinkActive="active"
+  class="clearfix">
+  <div class="float-left">
+    <h4 style="max-width: 250px; margin-left: 10px;" >{{ recipe.name }}</h4>
+    <p style="max-width: 250px; margin-left: 10px;" >{{ recipe.description | recipeDescriptionFilter }}</p>
+  </div>
+  <span class="float-right">
+        <img
+          [src]="recipe.imagePath"
+          alt="{{ recipe.name }}"
+          class="img-responsive">
+      </span>
+    </div>

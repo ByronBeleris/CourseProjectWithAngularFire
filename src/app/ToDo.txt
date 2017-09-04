@@ -1,0 +1,18 @@
+1) check for localStorage in angular
+    a) mayber create a service of token (manager)
+    b) localStorage.setItem
+    c) check token if valid
+
+2) using angular Firebase
+
+3) text-justify
+    a) allakse to text sta ..more
+
+4) add profile page (to prwto pou eixa skeftei)
+
+5) testing jasmine
+
+6)new 
+    a)State management Redux
+
+7)Redux course udemy

@@ -1,0 +1,81 @@
+
+<div class="card text-center" style="width: 20rem;">
+  <img
+  [src]="recipe.imagePath"
+  alt="{{ recipe.name }}"
+  class="img-responsive">
+  <div class="card-body">
+    <h4 class="card-title"> {{ recipe.name }} </h4>
+    <p class="card-text"> {{ recipe.description }} </p>
+    <br>
+    <button class="btn btn-primary" (click)="toggleCollapse()" *ngIf="!show"> More </button>
+    <button type="button" class="btn btn-info" (click)="hideTog()" *ngIf="show">Less </button>
+    <br><br>
+  
+  <ng-template [ngIf]="show">
+      <h5>Ingredients</h5>
+      <ul class="list-group">
+          <li
+            class="list-group-item"
+            *ngFor="let ingredient of recipe.ingredients">
+            {{ ingredient.name }} - {{ ingredient.amount }}
+          </li>
+        </ul>
+        <br>
+        <button
+        type="button"
+        class="btn btn-primary" [disabled]="!user" (click)="onAddToShoppingList(); hideTog()">To Shopping List
+      </button>
+      
+    </ng-template>
+  </div>
+</div>
+<br>
+
+<!-- <ng-template [ngIf]="show">
+<div class="container">
+<div class="row" >
+  <div class="col-12">
+    <img
+      [src]="recipe.imagePath"
+      alt="{{ recipe.name }}"
+      class="img-responsive"
+      style="max-height: 300px;">
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <h1>{{ recipe.name }}</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12"> 
+      <button
+        type="button"
+        class="btn btn-primary" [disabled]="!user" (click)="onAddToShoppingList(); hideTog()">To Shopping List
+      </button>
+      <button
+        type="button"
+        class="btn btn-info" (click)="hideTog()">Less
+      </button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    {{ recipe.description }}
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let ingredient of recipe.ingredients">
+        {{ ingredient.name }} - {{ ingredient.amount }}
+      </li>
+    </ul>
+  </div>
+</div>
+</div>
+<br> -->
+<!-- </ng-template> -->

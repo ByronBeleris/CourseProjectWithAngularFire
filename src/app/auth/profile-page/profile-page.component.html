@@ -1,0 +1,33 @@
+
+<div class="row mySignUpStyle">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-sm-offset-1 col-md-offset-2">
+      <h3>{{ author }}</h3>
+    </div>
+</div>
+
+<div class="row mySignUpStyle">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-sm-offset-1 col-md-offset-2">
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        
+        <div class="form-group labelButtonStyle">
+          <label for="imagePath">Profile Image</label>
+          <input
+            type="text"
+            id="image"
+            name="image"
+            ngModel
+            class="form-control"
+            placeholder="{{ image }}">
+      </div>
+      <div class="row">
+          <div class="col-12">
+            <img [src]="image" class="img-responsive">
+          </div>
+        </div>  
+      <div class="labelButtonStyle" style="margin-top:20px;">
+        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Save Image</button>
+      </div>
+      </form>
+    </div>
+  </div>
+  
